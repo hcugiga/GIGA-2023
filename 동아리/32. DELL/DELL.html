@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./DELL.png" type="image/x-icon">
+    <title>DELL</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            background-color: rgb(0, 0, 0);
+            user-select: none;
+            font-size: 1.1vw;
+        }
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            text-align: center;
+            background-color: rgb(0, 0, 0);
+            backdrop-filter: blur(5px);
+            z-index: 2;
+        }
+        .icon {
+            display: inline-block;
+            height: 3vw;
+            margin: 0.3vw 5vw;
+        }
+        ul {
+            list-style-type: none;
+            display: inline-block;
+            line-height: 3.6vw;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        li {
+            float: left;
+        }
+        li > a {
+            text-decoration: none;
+            color: #ffffff;
+            margin: 0 5vw;
+        }
+        div {
+            width: 80vw;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        div:first-of-type {
+            margin-top: 4vw;
+        }
+        .video {
+            background-image: url("015.webp");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -45%);
+            width: 70%;
+        }
+        div > img {
+            width: 80vw;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#top"><img src="DELL.png" class="icon"></a>
+        <ul>
+            <li><a href="#page2">활동 내용</a></li>
+            <li><a href="#page3">부원 소개</a></li>
+            <li><a href="#page4">공연 영상</a></li>
+        </ul>
+    </nav>
+    <div>
+        <img src="./001.webp">
+        <img src="./002.webp">
+        <img src="./003.webp">
+        <img src="./004.webp">
+        <img src="./005.webp">
+        <img src="./006.webp">
+        <img src="./007.webp">
+        <img src="./008.webp" id="page3">
+        <img src="./009.webp">
+        <img src="./010.webp">
+        <img src="./011.webp">
+        <img src="./012.webp" id="page2">
+        <img src="013.webp">
+        <img src="014.webp">
+        <div id="page4" class="video"><video controls="" src="dell공연(1).mp4"></video></div>
+        <div class="video"><video controls="" src="dell공연(2).mp4"></video></div>
+        <img src="016.webp">
+    </div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./동아리/9. GIGA/GIGA.png" type="image/x-icon">
+    <title>2023 움직임</title>
+    <style>
+        @font-face {
+            font-family: "JUA";
+            src: url("BMJUA_ttf.ttf");
+        }
+        .move img {
+             animation: shake 2s infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-1vw); }
+            100% { transform: translateY(0); }
+        }
+
+        img {
+            pointer-events: auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        body {
+            overflow: hidden;
+            resize: none;
+            margin: 0;
+            padding: 0;
+            background-image: url('./banner.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .regular,
+        .self,
+        .move {
+            position: absolute;
+            z-index: 5;
+            transition: all 0.3s ease;
+        }
+        .regular {
+            top: 30%;
+            left: 33%;
+            width: 14%;
+            opacity: 0.5;
+        }
+        .regular:hover {
+            opacity: 1.0;
+            transform: scale(1.04); 
+            transition: transform 0.3s ease; 
+        }
+        .self {
+            top: 30%;
+            left: 47.1%;
+            width: 14%;
+            opacity: 0.5;
+        }
+        .self:hover {
+            opacity: 1.0;
+            transform: scale(1.04);
+            transition: transform 0.3s ease; 
+        }
+        .move {
+            top: 8%;
+            left: 32%;
+            width: 30%;
+        }
+        .regular img,
+        .self img,
+        .move img {
+            max-width: 100%;
+            height: auto;
+        }
+        .regular .text-overlay,
+        .self .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: JUA;
+            font-size: 2vw;
+            color: rgb(114, 114, 114);
+            background-color: rgba(0, 0, 0, 0);
+            white-space: nowrap;
+            pointer-events: inherit;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="move" id="moving">
+        <img src="./2023 움직임.png">
+    </div>
+    <div class="regular" id="regular">
+        <a href="./regular.html" target="_blank">
+            <img src="./정규.png" alt="regular">
+            <div class="text-overlay">정규 동아리</div>
+        </a>
+    </div>
+    <div class="self" id="self">
+        <a href="./self.html" target="_blank">
+            <img src="./자율.png" alt="regular">
+            <div class="text-overlay">자율 동아리</div>
+        </a>
+    </div>
+</body>
+</html>

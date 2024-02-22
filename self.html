@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2023 움직임</title>
+    <style>
+    img {
+        pointer-events: auto;
+    }
+    body {
+        -webkit-user-select: none; 
+        -moz-user-select: none; 
+        -ms-user-select: none; 
+        user-select: none; 
+
+        background-color: rgb(200, 250, 190);
+        background-repeat: no-repeat;
+        background-size: cover; 
+    }
+
+    @font-face {
+        font-family: "JUA";
+        src: url("BMJUA_ttf.ttf");
+    }
+    .image-container {
+        position: absolute;
+        opacity: 0.7;
+        transition: transform 0.3s ease; 
+        width: 130%; 
+        height: 130%; 
+    }
+
+    .show,
+    .physical,
+    .making,
+    .volunteer,
+    .special
+    {
+        position: absolute;
+        opacity: 0.7;
+        transition: transform 0.3s ease; 
+        cursor: pointer;
+    }
+
+    .show:hover,
+    .physical:hover,
+    .making:hover,
+    .volunteer:hover,
+    .special:hover,
+    .social:hover
+    {
+        opacity: 1.0;
+        transform: scale(1.5);
+        z-index: 2; 
+    }
+
+    .hcu {        
+        position: absolute;
+        top: 6.93%;
+        left: 1.2%;
+        transform: scale(0.65); 
+        transition: opacity 0.3s ease;
+        width: 38.5%;
+    }
+    .hcu img {
+        width: 100%;
+    }
+
+    .show {
+        top: 16%;
+        left: 22.9%;
+        transform: scale(1.4); 
+        width: 11.8%;
+    }
+    .show img {
+        width: 100%;
+    }
+    .physical {
+        top: 43%;
+        left: 29.4%;
+        transform: scale(1.4); 
+        width: 7%;
+    }
+    .physical img {
+        width: 100%;
+    }
+    .making {
+        top: 73%;
+        left: 13.2%;
+        transform: scale(1.4); 
+        width: 14.6%;
+    }
+    .making img {
+        width: 100%;
+    }
+    .volunteer {
+        top: 43%;
+        left: 4.8%;
+        transform: scale(1.4); 
+        width: 7%;
+    }
+    .volunteer img {
+        width: 100%;
+    }
+    .special {
+        top: 16%;
+        left: 6.5%;
+        transform: scale(1.4); 
+        width: 11.8%;
+    }
+    .special img {
+        width: 100%;
+    }
+    .image-container img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .show .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-25%, -120%);
+        font-family: JUA;
+        font-size: 1.2vw;
+        color: rgb(114, 114, 114);
+        background-color: rgba(0, 0, 0, 0);
+        white-space: nowrap;
+        pointer-events: auto;
+    }
+    
+    .physical .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(30%, -80%);
+        font-family: JUA;
+        font-size: 1.2vw;
+        color: rgb(114, 114, 114);
+        background-color: rgba(0, 0, 0, 0);
+        white-space: nowrap;
+        pointer-events: auto;
+    }
+    .making .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-45%, -10%);
+        font-family: JUA;
+        font-size: 1.2vw;
+        color: rgb(114, 114, 114);
+        background-color: rgba(0, 0, 0, 0);
+        white-space: nowrap;
+        pointer-events: auto;
+    }
+    .volunteer .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-120%, -30%);
+        font-family: JUA;
+        font-size: 1.2vw;
+        color: rgb(114, 114, 114);
+        background-color: rgba(0, 0, 0, 0);
+        white-space: nowrap;
+        pointer-events: auto;
+    }
+    .special .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-65%, -120%);
+        font-family: JUA;
+        font-size: 1.2vw;
+        color: rgb(114, 114, 114);
+        background-color: rgba(0, 0, 0, 0);
+        white-space: nowrap;
+        pointer-events: auto;
+    }
+
+    .showcircle, .physicalcircle, .makingcircle, .volunteercircle, .specialcircle {
+        position: absolute;
+        top: 6.93%;
+        left: 1.2%;
+        transform: scale(0.65); 
+        width: 38.5%;
+        opacity: 0; 
+        transition: opacity 0.3s ease; 
+    }
+    .showcircle img, .physicalcircle img, .makingcircle img, .volunteercircle img, .specialcircle img {
+        width: 100%;
+    }
+    .showcircle2, .physicalcircle2, .makingcircle2, .volunteercircle2, .specialcircle2 {
+        position: absolute;
+        top: 6.93%;
+        left: 1.2%;
+        transform: scale(0.65); 
+        width: 38.5%;
+        opacity: 0; 
+        transition: opacity 0.3s ease;  
+    }
+    .showcircle2 img, .physicalcircle2 img, .makingcircle2 img, .volunteercircle2 img, .specialcircle2 img {
+        width: 100%;
+    }
+    #clubs {
+        position: absolute;
+        top: 6.5%;
+        left: 43%;
+        width: 47%;
+        height: 84%;
+        background: rgb(200, 250, 190);
+    }
+    .매치포인트 img, .ILS img, .CBP img, .듀스 img, .LOD img, .쇼군 img, .랩소디 img, .솔매 img, .DELL img, .인터미션 img, .HCUtube img, .CET img, .FOCUS img, .BLUECROSS img, .RCY img, .아리솔 img, .COEX img, .하늘바라기 img, .HBS img, .심포니 img {
+        width: 100%;
+    }
+    .매치포인트 {
+        /* cursor: pointer; */
+        position: absolute;
+        top: 5%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .ILS {
+        position: absolute;
+        top: 19%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .CBP {
+        position: absolute;
+        top: 33%; 
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .듀스 {
+        position: absolute;
+        top: 47%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .LOD {
+        position: absolute;
+        top: 5%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .쇼군 {
+        position: absolute;
+        top: 19%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .랩소디 {
+        position: absolute;
+        top: 33%; 
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .솔매 {
+        position: absolute;
+        top: 47%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .DELL {
+        position: absolute;
+        top: 61%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .인터미션 {
+        position: absolute;
+        top: 74%; 
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .HCUtube {
+        position: absolute;
+        top: 5%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .CET {
+        position: absolute;
+        top: 19%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .FOCUS {
+        position: absolute;
+        top: 33%; 
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .BLUECROSS {
+        position: absolute;
+        top: 5%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .RCY {
+        position: absolute;
+        top: 19%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .아리솔 {
+        position: absolute;
+        top: 5%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .COEX {
+        position: absolute;
+        top: 19%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .하늘바라기 {
+        position: absolute;
+        top: 33%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .HBS {
+        position: absolute;
+        top: 47%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .심포니 {
+        position: absolute;
+        top: 47%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: rgb(160, 228, 147);
+        padding: 0.2vw;
+        text-align: center;
+        font-size: 0.9vw;
+        color: #000000;
+    }
+
+    </style>
+</head>
+<body>  
+    <div class="매치포인트" id="매치포인트">
+        <a href="./동아리/24. 매치포인트/매치포인트.html" target="_blank">
+            <img src="./로고/24.png" alt="매치포인트">
+        </a>
+    </div>
+    
+    <div class="ILS" id="ILS">
+        <a href="./동아리/25. ILS/ILS.html" target="_blank">
+            <img src="./로고/25.png" alt="ILS">
+        </a>
+    </div>
+    
+    <div class="CBP" id="CBP">
+        <a href="./동아리/26. CBP/CBP.html" target="_blank">
+            <img src="./로고/26.png" alt="CBP">
+        </a>
+    </div>
+    
+    <div class="듀스" id="듀스">
+        <a href="./동아리/27. 듀스/듀스.html" target="_blank">
+            <img src="./로고/27.png" alt="듀스">
+        </a>
+    </div>
+    
+    <div class="LOD" id="LOD">
+        <a href="./동아리/28. LOD/LOD.html" target="_blank">
+            <img src="./로고/28.png" alt="LOD">
+        </a>
+    </div>
+    
+    <div class="쇼군" id="쇼군">
+        <a href="./동아리/29. 쇼군/쇼군.html" target="_blank">
+            <img src="./로고/29.png" alt="쇼군">
+        </a>
+    </div>
+    
+    <div class="랩소디" id="랩소디">
+        <a href="./동아리/30. 랩소디/랩소디.html" target="_blank">
+            <img src="./로고/30.png" alt="랩소디">
+        </a>
+    </div>
+    
+    <div class="솔매" id="솔매">
+        <a href="./동아리/31. 솔매/솔매.html" target="_blank">
+            <img src="./로고/31.png" alt="솔매">
+        </a>
+    </div>
+    
+    <div class="DELL" id="DELL">
+        <a href="./동아리/32. DELL/DELL.html" target="_blank">
+            <img src="./로고/32.png" alt="DELL">
+        </a>
+    </div>
+    
+    <div class="인터미션" id="인터미션">
+        <a href="./동아리/33. 인터미션/인터미션.html" target="_blank">
+            <img src="./로고/33.png" alt="인터미션">
+        </a>
+    </div>
+    
+    <div class="HCUtube" id="HCUtube">
+        <a href="./동아리/34. HCUtube/HCUtube.html" target="_blank">
+            <img src="./로고/34.png" alt="HCUtube">
+        </a>
+    </div>
+    
+    <div class="CET" id="CET">
+        <a href="./동아리/35. CET/CET.html" target="_blank">
+            <img src="./로고/35.png" alt="CET">
+        </a>
+    </div>
+    
+    <div class="FOCUS" id="FOCUS">
+        <a href="./동아리/36. FOCUS/FOCUS.html" target="_blank">
+            <img src="./로고/36.png" alt="FOCUS">
+        </a>
+    </div>
+    
+    <div class="BLUECROSS" id="BLUECROSS">
+        <a href="./동아리/37. BLUECROSS/BLUECROSS.html" target="_blank">
+            <img src="./로고/37.png" alt="BLUECROSS">
+        </a>
+    </div>
+    
+    <div class="RCY" id="RCY">
+        <a href="./동아리/38. RCY/RCY.html" target="_blank">
+            <img src="./로고/38.png" alt="RCY">
+        </a>
+    </div>
+    
+    <div class="아리솔" id="아리솔">
+        <a href="./동아리/39. 아리솔/아리솔.html" target="_blank">
+            <img src="./로고/39.png" alt="아리솔">
+        </a>
+    </div>
+    
+    <div class="COEX" id="COEX">
+        <a href="./동아리/40. COEX/COEX.html" target="_blank">
+            <img src="./로고/40.png" alt="COEX">
+        </a>
+    </div>
+    
+    <div class="하늘바라기" id="하늘바라기">
+        <a href="./동아리/41. 하늘바라기/하늘바라기.html" target="_blank">
+            <img src="./로고/41.png" alt="하늘바라기">
+        </a>
+    </div>
+    
+    <div class="HBS" id="HBS">
+        <a href="./동아리/42. HBS/HBS.html" target="_blank">
+            <img src="./로고/42.png" alt="HBS">
+        </a>
+    </div>
+    
+    <div class="심포니" id="심포니">
+        <a href="./동아리/43. 심포니/심포니.html" target="_blank">
+            <img src="./로고/43.png" alt="심포니">
+        </a>
+    </div>
+    
+    <div class="hcu">
+        <img src="hcu로고.png">
+    </div> 
+    <div class="show" id = "show" onclick="showclick()">
+        <img src="./원/공연.png">
+        <div class="text-overlay">공연</div>
+    </div>
+    <div class="showcircle" id = "showcircle">
+        <img src="./중간원/공연원.png">
+    </div>   
+    <div class="showcircle2" id = "showcircle2">
+        <img src="./중간원/공연원.png">
+    </div>   
+    <div class="physical" id = "physical" onclick="physicalclick()">
+        <img src="./원/체육.png">
+        <div class="text-overlay">체육</div>
+    </div>
+    <div class="physicalcircle">
+        <img src="./중간원/체육원.png">
+    </div>
+    <div class="physicalcircle2" id = "physicalcircle2">
+        <img src="./중간원/체육원.png">
+    </div>
+    <div class="making" id = "making" onclick="makingclick()">
+        <img src="./원/창작제작.png">
+        <div class="text-overlay">창작/제작</div>
+    </div>
+    <div class="makingcircle">
+        <img src="./중간원/창작제작원.png">
+    </div>
+    <div class="makingcircle2" id = "makingcircle2">
+        <img src="./중간원/창작제작원.png">
+    </div>
+    <div class="volunteer" id = "volunteer" onclick="volunteerclick()">
+        <img src="./원/봉사.png">
+        <div class="text-overlay">봉사</div>
+    </div>
+    <div class="volunteercircle">
+        <img src="./중간원/봉사원.png">
+    </div>
+    <div class="volunteercircle2" id = "volunteercircle2">
+        <img src="./중간원/봉사원.png">
+    </div>
+    <div class="special" id = "special" onclick="specialclick()">
+        <img src="./원/특별활동.png">
+        <div class="text-overlay">특별활동</div>
+    </div>
+    <div class="specialcircle">
+        <img src="./중간원/특별활동원.png">
+    </div>
+    <div class="specialcircle2" id = "specialcircle2">
+        <img src="./중간원/특별활동원.png">
+    </div>
+    <div id="clubs">
+    </div>
+</body>
+<footer>
+    <p>기본 화면 크기와 맞는 비율이 아닌 경우 원이 변형될 수 있습니다!<br>GIGA Copyright © 2024. All rights reserved.</p>
+</footer>
+<script>
+
+    
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const showElement = document.querySelector('.show');
+        const showCircleElement = document.querySelector('.showcircle');
+
+        showElement.addEventListener('mouseenter', () => {
+            showCircleElement.style.opacity = '1';
+        });
+
+        showElement.addEventListener('mouseleave', () => {
+            showCircleElement.style.opacity = '0';
+        });
+    });
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const physicalElement = document.querySelector('.physical');
+        const physicalCircleElement = document.querySelector('.physicalcircle');
+
+        physicalElement.addEventListener('mouseenter', () => {
+            physicalCircleElement.style.opacity = '1';
+        });
+
+        physicalElement.addEventListener('mouseleave', () => {
+            physicalCircleElement.style.opacity = '0';
+        });
+    });
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const makingElement = document.querySelector('.making');
+        const makingCircleElement = document.querySelector('.makingcircle');
+
+        makingElement.addEventListener('mouseenter', () => {
+            makingCircleElement.style.opacity = '1';
+        });
+
+        makingElement.addEventListener('mouseleave', () => {
+            makingCircleElement.style.opacity = '0';
+        });
+    });
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const volunteerElement = document.querySelector('.volunteer');
+        const volunteerCircleElement = document.querySelector('.volunteercircle');
+
+        volunteerElement.addEventListener('mouseenter', () => {
+            volunteerCircleElement.style.opacity = '1';
+        });
+
+        volunteerElement.addEventListener('mouseleave', () => {
+            volunteerCircleElement.style.opacity = '0';
+        });
+    });
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const specialElement = document.querySelector('.special');
+        const specialCircleElement = document.querySelector('.specialcircle');
+
+        specialElement.addEventListener('mouseenter', () => {
+            specialCircleElement.style.opacity = '1';
+        });
+
+        specialElement.addEventListener('mouseleave', () => {
+            specialCircleElement.style.opacity = '0';
+        });
+    });
+    //================================================================
+        function showclick() {
+        const clubs = document.getElementById('clubs');
+        const show = document.getElementById('show');
+        const showcircle2 = document.getElementById('showcircle2');
+        
+        clubs.style.background = 'rgb(255, 230, 153)';
+        show.style.transform = 'scale(1.5)';
+        show.style.opacity = '1';
+        show.style.zIndex = '4';
+        showcircle2.style.opacity = '1';
+        showcircle2.style.zIndex = '2';
+        
+        const otherClubs = document.querySelectorAll('.매치포인트, .ILS, .CBP, .듀스, .HCUtube, .CET, .FOCUS, .BLUECROSS, .RCY, .아리솔, .COEX, .하늘바라기, .HBS, .심포니');
+        otherClubs.forEach(element => {
+            element.style.display = 'none';
+        });
+
+        const displayClubs = document.querySelectorAll('.LOD, .쇼군, .랩소디, .솔매, .DELL, .인터미션');
+        displayClubs.forEach(element => {
+            element.style.display = 'block';
+        });
+
+        const otherElements = document.querySelectorAll('.physical, .making, .volunteer, .special');
+        otherElements.forEach(element => {
+            element.style.transform = 'scale(1.4)';
+            element.style.opacity = '0.7';
+            element.style.zIndex = '3';
+        });
+
+        const otherCircles = document.querySelectorAll('.physicalcircle2, .makingcircle2, .volunteercircle2, .specialcircle2');
+        otherCircles.forEach(circle => {
+            circle.style.opacity = '0';
+        });
+    }
+
+    function physicalclick() {
+        const clubs = document.getElementById('clubs');
+        const physical = document.getElementById('physical');
+        const physicalcircle2 = document.getElementById('physicalcircle2');
+        clubs.style.background = 'rgb(255, 217, 102)';
+        physical.style.transform = 'scale(1.5)';
+        physical.style.opacity = '1';
+        physical.style.zIndex = '4';
+        physicalcircle2.style.opacity = '1';
+        physicalcircle2.style.zIndex = '2';
+
+        const displayClubs = document.querySelectorAll('.매치포인트, .ILS, .CBP, .듀스');
+        displayClubs.forEach(element => {
+            element.style.display = 'block';
+        });
+
+        const otherElements = document.querySelectorAll('.show, .making, .volunteer, .special');
+        otherElements.forEach(element => {
+            element.style.transform = 'scale(1.4)';
+            element.style.opacity = '0.7';
+            element.style.zIndex = '3';
+        });
+
+        const otherClubs = document.querySelectorAll('.LOD, .쇼군, .랩소디, .솔매, .DELL, .인터미션, .HCUtube, .CET, .FOCUS, .BLUECROSS, .RCY, .아리솔, .COEX, .하늘바라기, .HBS, .심포니');
+        otherClubs.forEach(element => {
+            element.style.display = 'none';
+        });
+
+        const otherCircles = document.querySelectorAll('.showcircle2, .makingcircle2, .volunteercircle2, .specialcircle2');
+        otherCircles.forEach(circle => {
+            circle.style.opacity = '0';
+        });
+    }
+
+    function makingclick() {
+        const clubs = document.getElementById('clubs');
+        const making = document.getElementById('making');
+        const makingcircle2 = document.getElementById('makingcircle2');
+        clubs.style.background = 'rgb(255, 194, 105)';
+        making.style.transform = 'scale(1.5)';
+        making.style.opacity = '1';
+        making.style.zIndex = '4';
+        makingcircle2.style.opacity = '1';
+        makingcircle2.style.zIndex = '2';
+
+        const otherClubs = document.querySelectorAll('.매치포인트, .ILS, .CBP, .듀스, .LOD, .쇼군, .랩소디, .솔매, .DELL, .인터미션, .BLUECROSS, .RCY, .아리솔, .COEX, .하늘바라기, .HBS, .심포니');
+        otherClubs.forEach(element => {
+            element.style.display = 'none';
+        });
+
+        const displayClubs = document.querySelectorAll('.HCUtube, .CET, .FOCUS');
+        displayClubs.forEach(element => {
+            element.style.display = 'block';
+        });
+
+        const otherElements = document.querySelectorAll('.show, .physical, .volunteer, .special');
+        otherElements.forEach(element => {
+            element.style.transform = 'scale(1.4)';
+            element.style.opacity = '0.7';
+            element.style.zIndex = '3';
+        });
+
+        const otherCircles = document.querySelectorAll('.showcircle2, .physicalcircle2, .volunteercircle2, .specialcircle2');
+        otherCircles.forEach(circle => {
+            circle.style.opacity = '0';
+        });
+    }
+    function volunteerclick() {
+        const clubs = document.getElementById('clubs');
+        const volunteer = document.getElementById('volunteer');
+        const volunteercircle2 = document.getElementById('volunteercircle2');
+        clubs.style.background = 'rgb(226, 207, 241)';
+        volunteer.style.transform = 'scale(1.5)';
+        volunteer.style.opacity = '1';
+        volunteer.style.zIndex = '4';
+        volunteercircle2.style.opacity = '1';
+        volunteercircle2.style.zIndex = '2';
+
+        const otherClubs = document.querySelectorAll('.매치포인트, .ILS, .CBP, .듀스, .LOD, .쇼군, .랩소디, .솔매, .DELL, .인터미션, .HCUtube, .CET, .FOCUS, .아리솔, .COEX, .하늘바라기, .HBS, .심포니');
+        otherClubs.forEach(element => {
+            element.style.display = 'none';
+        });
+
+        const displayClubs = document.querySelectorAll('.BLUECROSS, .RCY');
+        displayClubs.forEach(element => {
+            element.style.display = 'block';
+        });
+        
+        const otherElements = document.querySelectorAll('.show, .physical, .making, .special');
+        otherElements.forEach(element => {
+            element.style.transform = 'scale(1.4)';
+            element.style.opacity = '0.7';
+            element.style.zIndex = '3';
+        });
+
+        const otherCircles = document.querySelectorAll('.showcircle2, .physicalcircle2, .makingcircle2, .specialcircle2');
+        otherCircles.forEach(circle => {
+            circle.style.opacity = '0';
+        });
+    }
+    function specialclick() {
+        const clubs = document.getElementById('clubs');
+        const special = document.getElementById('special');
+        const specialcircle2 = document.getElementById('specialcircle2');
+        clubs.style.background = 'rgb(200, 165, 229)';
+        special.style.transform = 'scale(1.5)';
+        special.style.opacity = '1';
+        special.style.zIndex = '4';
+        specialcircle2.style.opacity = '1';
+        specialcircle2.style.zIndex = '2';
+
+        const otherClubs = document.querySelectorAll('.매치포인트, .ILS, .CBP, .듀스, .LOD, .쇼군, .랩소디, .솔매, .DELL, .인터미션, .HCUtube, .CET, .FOCUS, .BLUECROSS, .RCY');
+        otherClubs.forEach(element => {
+            element.style.display = 'none';
+        });
+
+        const displayClubs = document.querySelectorAll('.아리솔, .COEX, .하늘바라기, .HBS, .심포니');
+        displayClubs.forEach(element => {
+            element.style.display = 'block';
+        });
+
+        const otherElements = document.querySelectorAll('.show, .physical, .making, .volunteer');
+        otherElements.forEach(element => {
+            element.style.transform = 'scale(1.4)';
+            element.style.opacity = '0.7';
+            element.style.zIndex = '3';
+        });
+
+        const otherCircles = document.querySelectorAll('.showcircle2, .physicalcircle2, .makingcircle2, .volunteercircle2');
+        otherCircles.forEach(circle => {
+            circle.style.opacity = '0';
+        });
+    }
+</script>
+</html>

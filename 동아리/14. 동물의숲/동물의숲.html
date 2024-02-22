@@ -1,0 +1,198 @@
+<html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./동물의숲.png" type="image/x-icon">
+    <title>동물의 숲</title>
+    <style>
+        @media screen and (min-width: 769px) {            
+            body{
+                background-color: #FFFAE4;
+                user-select: none;
+            }
+            ul{
+                list-style-type: none;
+                display: inline-block;
+                padding: 0;
+                margin: 0;
+                text-align: center;
+            }
+            li{
+                float: left;
+            }
+            div > img{
+                width: 75vw;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            div{
+                margin-top: 2.5vw;
+            }
+            #slideShow{
+                width: 75vw;
+                height: 90vh;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+                overflow: hidden;
+            }
+            .slides{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 2000vw;
+                transition: left 0.5s ease-out; 
+            }
+            .slides li:first-child{
+                margin-left: 0;
+            }
+            .slides li:not(:last-child){
+                float: left;
+                margin-right: 0;
+            }
+            .slides li{
+                float: left;
+            }
+            .slides > li > img{
+                width: 75vw;
+            }
+            .controller span{
+                position:absolute;
+                color: black;
+                text-align: center;
+                padding: 10px 20px;
+                top: 45%;
+                font-size: 1.3em;
+                cursor: pointer;
+            }
+            .prev{
+                left: 10px;
+            }
+            .next{
+                right: 10px;
+            }
+        }
+        @media screen and (max-width: 769px) {            
+            body{
+                background-color: #FFFAE4;
+                user-select: none;
+            }
+            ul{
+                list-style-type: none;
+                display: inline-block;
+                padding: 0;
+                margin: 0;
+                text-align: center;
+            }
+            li{
+                float: left;
+            }
+            div > img{
+                width: 75vw;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            div{
+                margin-top: 18vw;
+            }
+            #slideShow{
+                width: 75vw;
+                height: 90vh;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+                overflow: hidden;
+            }
+            .slides{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 2000vw;
+                transition: left 0.5s ease-out; 
+            }
+            .slides li:first-child{
+                margin-left: 0;
+            }
+            .slides li:not(:last-child){
+                float: left;
+                margin-right: 0;
+            }
+            .slides li{
+                float: left;
+            }
+            .slides > li > img{
+                width: 75vw;
+            }
+            .controller span{
+                position:absolute;
+                color: black;
+                text-align: center;
+                padding: 10px 20px;
+                top: 45%;
+                font-size: 1.3em;
+                cursor: pointer;
+            }
+            .prev{
+                left: 10px;
+            }
+            .next{
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="slideShow">
+        <ul class="slides" style="width: 16900px; left: -900vw;">        
+            <li><img src="./001.png"></li>
+            <li><img src="./002.png"></li>
+            <li><img src="./003.png"></li>
+            <li><img src="./004.png"></li>
+            <li><img src="./005.png"></li>
+            <li><img src="./006.png"></li>
+            <li><img src="./007.png"></li>
+            <li><img src="./008.png"></li>
+            <li><img src="./009.png"></li>
+            <li><img src="./010.png"></li>
+            <li><img src="./011.png"></li>
+            <li><img src="./012.png"></li>
+            <li><img src="./013.png"></li>
+        </ul>
+    </div>
+    <p class="controller">
+      <span class="prev" id="left">⟨</span>  
+      <span class="next" id="right">⟩</span>
+    </p>
+
+<script>
+    const slides = document.querySelector('.slides');
+    const slideImg = document.querySelectorAll('.slides li');
+    let currentIdx = 0;
+    const slideCount = slideImg.length;
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    const slideWidth = 1300;
+    const slideMargin = 0;
+
+    slides.style.width = (slideWidth + slideMargin) * slideCount + 'px';
+    
+    moveSlide(0);
+
+    function moveSlide(num) {
+    slides.style.left = -num * 75 + 'vw';
+    currentIdx = num;
+    }
+
+    prev.addEventListener('click', function () {
+    if (currentIdx !== 0) moveSlide(currentIdx - 1);
+    });
+
+    next.addEventListener('click', function () {
+    if (currentIdx !== slideCount - 1) {
+        moveSlide(currentIdx + 1);
+    }
+    });
+</script>
+</body></html>

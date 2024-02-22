@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2023 움직임</title>
+    <style>
+    img {
+        pointer-events: auto;
+    }
+    body {
+        -webkit-user-select: none; 
+        -moz-user-select: none; 
+        -ms-user-select: none; 
+        user-select: none; 
+
+        background-color: rgb(222, 235, 247);
+        background-repeat: no-repeat;
+        background-size: cover; 
+    }
+
+    @font-face {
+        font-family: "JUA";
+        src: url("BMJUA_ttf.ttf");
+    }
+    .image-container {
+        position: absolute;
+        opacity: 0.7;
+        transition: transform 0.3s ease; 
+        width: 130%; 
+        height: 130%; 
+    }
+
+    .tech,
+    .science,
+    .math,
+    .medical,
+    .pharmacy,
+    .social,
+    .art,
+    .etc {
+        position: absolute;
+        opacity: 0.7;
+        transition: transform 0.3s ease; 
+        cursor: pointer;
+    }
+
+    .tech:hover,
+    .science:hover,
+    .math:hover,
+    .medical:hover,
+    .pharmacy:hover,
+    .social:hover,
+    .art:hover,
+    .etc:hover {
+        opacity: 1.0;
+        transform: scale(1.5);
+        z-index: 2; 
+    }
+    .hcu {        
+        position: absolute;
+        top: 6.93%;
+        left: 1.2%;
+        transform: scale(0.65); 
+        transition: opacity 0.3s ease;
+        width: 38.5%;
+    }
+    .hcu img {
+        width: 100%;
+    }
+    .tech {
+        top: 26.5%;
+        left: 30.7%;
+        transform: scale(1.4);
+        width: 5.8%;
+    }
+
+    .tech img {
+        width: 100%;
+    }
+
+    .science {
+        top: 14.3%;
+        left: 22.2%;
+        transform: scale(1.4); 
+        width: 8.8%;
+    }
+    .science img {
+        width: 100%;
+    }
+
+    .math {
+        top: 52.2%;
+        left: 30.7%;
+        transform: scale(1.4); 
+        width: 5.8%;
+    }
+    .math img {
+        width: 100%;
+    }
+    .medical {
+        top: 70.2%;
+        left: 22.2%;
+        transform: scale(1.4); 
+        width: 8.8%;
+    }
+    .medical img {
+        width: 100%;
+    }
+    .pharmacy {
+        top: 70.2%;
+        left: 10%;
+        transform: scale(1.4); 
+        width: 8.8%;
+    }
+    .pharmacy img {
+        width: 100%;
+    }
+    .social {
+        top: 26.5%;
+        left: 4.6%;
+        transform: scale(1.4); 
+        width: 5.8%;
+    }
+    .social img {
+        width: 100%;
+    }
+    .art {
+        top: 52.2%;
+        left: 4.6%;
+        transform: scale(1.4); 
+        width: 5.8%;
+    }
+    .art img {
+        width: 100%;
+    }
+    .etc {
+        top: 14.3%;
+        left: 10%;
+        transform: scale(1.4); 
+        width: 8.8%;
+    }
+    .etc img {
+        width: 100%;
+    }
+    .image-container img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .tech .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-40%, -50%);
+        font-family: JUA;
+        font-size: 1.2vw;
+        color: rgb(114, 114, 114);
+        background-color: rgba(0, 0, 0, 0);
+        white-space: nowrap;
+        pointer-events: auto;
+    }
+    .science .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-60%, -80%);
+        font-family: JUA;
+        font-size: 1.2vw;
+        color: rgb(114, 114, 114);
+        background-color: rgba(0, 0, 0, 0);
+        white-space: nowrap;
+        pointer-events: auto;
+    }
+    .math .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-30%, -80%);
+        font-family: JUA;
+        font-size: 1.2vw;
+        color: rgb(114, 114, 114);
+        background-color: rgba(0, 0, 0, 0);
+        white-space: nowrap;
+        pointer-events: auto;
+    }
+    .medical .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-45%, -30%);
+        font-family: JUA;
+        font-size: 1.2vw;
+        color: rgb(114, 114, 114);
+        background-color: rgba(0, 0, 0, 0);
+        white-space: nowrap;
+        pointer-events: auto;
+    }
+    .pharmacy .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-30%, -30%);
+        font-family: JUA;
+        font-size: 1.2vw;
+        color: rgb(114, 114, 114);
+        background-color: rgba(0, 0, 0, 0);
+        white-space: nowrap;
+        pointer-events: auto;
+    }
+    .art .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-75%, -70%);
+        font-family: JUA;
+        font-size: 1.2vw;
+        color: rgb(114, 114, 114);
+        background-color: rgba(0, 0, 0, 0);
+        white-space: nowrap;
+        pointer-events: auto;
+    }
+    .social .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-75%, -70%);
+        font-family: JUA;
+        font-size: 1.2vw;
+        color: rgb(114, 114, 114);
+        background-color: rgba(0, 0, 0, 0);
+        white-space: nowrap;
+        pointer-events: auto;
+    }
+    .etc .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        transform: translate(-40%, -75%);
+        font-family: JUA;
+        font-size: 1.2vw;
+        color: rgb(114, 114, 114);
+        background-color: rgba(0, 0, 0, 0);
+        white-space: nowrap;
+        pointer-events: auto;
+    }
+    .techcircle, .sciencecircle, .mathcircle, .medicalcircle, .pharmacycircle, .artcircle, .socialcircle, .etccircle {
+        position: absolute;
+        top: 6.93%;
+        left: 1.2%;
+        transform: scale(0.65); 
+        width: 38.5%;
+        opacity: 0; 
+        transition: opacity 0.3s ease; 
+    }
+    .techcircle img, .sciencecircle img, .mathcircle img, .medicalcircle img, .pharmacycircle img, .artcircle img, .socialcircle img, .etccircle img {
+        width: 100%;
+    }
+    .techcircle2, .sciencecircle2, .mathcircle2, .medicalcircle2, .pharmacycircle2, .artcircle2, .socialcircle2, .etccircle2 {
+        position: absolute;
+        top: 6.93%;
+        left: 1.2%;
+        transform: scale(0.65); 
+        width: 38.5%; 
+        opacity: 0; 
+        transition: opacity 0.3s ease; 
+    }
+    .techcircle2 img, .sciencecircle2 img, .mathcircle2 img, .medicalcircle2 img, .pharmacycircle2 img, .artcircle2 img, .socialcircle2 img, .etccircle2 img {
+        width: 100%;
+    }
+    #clubs {
+        position: absolute;
+        top: 6.5%;
+        left: 43%;
+        width: 47%;
+        height: 84%;
+        background: rgb(222, 235, 247);
+    }
+    .시나브로 img, .AIM img, .CUBE img, .GeNiUS img, .KDX img, .CELLS img, .STEM img, .SAMDI img, .GIGA img, .DM img, .LUCID img, .DNT img, .SIN img, .동물의숲 img, .EBS img, .MEME img, .IT img, .강약중강약 img, .글애돝 img, .BYOD img, .라포르 img, .INTERPOL img, .liberte img {
+        width: 100%;
+    }
+    .시나브로 {
+        position: absolute;
+        top: 5%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .AIM {
+        position: absolute;
+        top: 19%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .CUBE {
+        position: absolute;
+        top: 33%; 
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .GeNiUS {
+        position: absolute;
+        top: 47%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .KDX {
+        position: absolute;
+        top: 61%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .CELLS {
+        position: absolute;
+        top: 75%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .STEM {
+        position: absolute;
+        top: 5%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .SAMDI {
+        position: absolute;
+        top: 19%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .GIGA {
+        position: absolute;
+        top: 33%; 
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .DM {
+        position: absolute;
+        top: 5%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .LUCID {
+        position: absolute;
+        top: 19%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .DNT {
+        position: absolute;
+        top: 33%; 
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .SIN {
+        position: absolute;
+        top: 5%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .동물의숲 {
+        position: absolute;
+        top: 19%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .EBS {
+        position: absolute;
+        top: 33%; 
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .MEME {
+        position: absolute;
+        top: 46%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .IT {
+        position: absolute;
+        top: 61%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .강약중강약 {
+        position: absolute;
+        top: 5%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .글애돝 {
+        position: absolute;
+        top: 5%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .BYOD {
+        position: absolute;
+        top: 19%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .라포르 {
+        position: absolute;
+        top: 5%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .INTERPOL {
+        position: absolute;
+        top: 19%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    .liberte {
+        position: absolute;
+        top: 5%;
+        left: 35.5%;
+        z-index: 5;
+        width: 62%;
+        transform: scale(0.75);
+        display: none;
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: rgb(184, 213, 240);
+        padding: 0.2vw;
+        text-align: center;
+        font-size: 0.9vw;
+        color: #000000;
+    }
+    </style>
+</head>
+<body>  
+    <div class="시나브로" id="시나브로">
+        <a href="./동아리/1. 시나브로/시나브로.html" target="_blank">
+            <img src="./로고/1.png" alt="시나브로">
+        </a>
+    </div>
+    
+    <div class="AIM" id="AIM">
+        <a href="./동아리/2. AIM/AIM.html" target="_blank">
+            <img src="./로고/2.png" alt="AIM">
+        </a>
+    </div>
+    
+    <div class="CUBE" id="CUBE">
+        <a href="./동아리/3. CUBE/CUBE.html" target="_blank">
+            <img src="./로고/3.png" alt="CUBE">
+        </a>
+    </div>
+    
+    <div class="GeNiUS" id="GeNiUS">
+        <a href="./동아리/4. GeNiUS/GeNiUS.html" target="_blank">
+            <img src="./로고/4.png" alt="GeNiUS">
+        </a>
+    </div>
+    
+    <div class="KDX" id="KDX">
+        <a href="./동아리/5. KDX/KDX.html" target="_blank">
+            <img src="./로고/5.png" alt="KDX">
+        </a>
+    </div>
+    
+    <div class="CELLS" id="CELLS">
+        <a href="./동아리/6. CELLS/CELLS.html" target="_blank">
+            <img src="./로고/6.png" alt="CELLS">
+        </a>
+    </div>
+    
+    <div class="STEM" id="STEM">
+        <a href="./동아리/7. STEM/STEM.html" target="_blank">
+            <img src="./로고/7.png" alt="STEM">
+        </a>
+    </div>
+    
+    <div class="SAMDI" id="SAMDI">
+        <a href="./동아리/8. SAMDI/SAMDI.html" target="_blank">
+            <img src="./로고/8.png" alt="SAMDI">
+        </a>
+    </div>
+    
+    <div class="GIGA" id="GIGA">
+        <a href="./동아리/9. GIGA/GIGA.html" target="_blank">
+            <img src="./로고/9.png" alt="GIGA">
+        </a>
+    </div>
+    
+    <div class="DM" id="DM">
+        <a href="./동아리/10. DM/DM.html" target="_blank">
+            <img src="./로고/10.png" alt="DM">
+        </a>
+    </div>
+    
+    <div class="LUCID" id="LUCID">
+        <a href="./동아리/11. LUCID/LUCID.html" target="_blank">
+            <img src="./로고/11.png" alt="LUCID">
+        </a>
+    </div>
+    
+    <div class="DNT" id="DNT">
+        <a href="./동아리/12. DNT/DNT.html" target="_blank">
+            <img src="./로고/12.png" alt="DNT">
+        </a>
+    </div>
+    
+    <div class="SIN" id="SIN">
+        <a href="./동아리/13. SIN/SIN.html" target="_blank">
+            <img src="./로고/13.png" alt="SIN">
+        </a>
+    </div>
+    
+    <div class="동물의숲" id="동물의숲">
+        <a href="./동아리/14. 동물의숲/동물의숲.html" target="_blank">
+            <img src="./로고/14.png" alt="동물의숲">
+        </a>
+    </div>
+    
+    <div class="EBS" id="EBS">
+        <a href="./동아리/15. EBS/EBS.html" target="_blank">
+            <img src="./로고/15.png" alt="EBS">
+        </a>
+    </div>
+    
+    <div class="MEME" id="MEME">
+        <a href="./동아리/16. MEME/MEME.html" target="_blank">
+            <img src="./로고/16.png" alt="MEME">
+        </a>
+    </div>
+    
+    <div class="IT" id="IT">
+        <a href="./동아리/17. IT/IT.html" target="_blank">
+            <img src="./로고/17.png" alt="IT">
+        </a>
+    </div>
+    
+    <div class="강약중강약" id="강약중강약">
+        <a href="./동아리/18. 강약중강약/강약중강약.html" target="_blank">
+            <img src="./로고/18.png" alt="강약중강약">
+        </a>
+    </div>
+    
+    <div class="글애돝" id="글애돝">
+        <a href="./동아리/19. 글애돝/글애돝.html" target="_blank">
+            <img src="./로고/19.png" alt="글애돝">
+        </a>
+    </div>
+    
+    <div class="BYOD" id="BYOD">
+        <a href="./동아리/20. BYOD/BYOD.html" target="_blank">
+            <img src="./로고/20.png" alt="BYOD">
+        </a>
+    </div>
+    
+    <div class="라포르" id="라포르">
+        <a href="./동아리/21. 라포르/라포르.html" target="_blank">
+            <img src="./로고/21.png" alt="라포르">
+        </a>
+    </div>
+    
+    <div class="INTERPOL" id="INTERPOL">
+        <a href="./동아리/22. INTERPOL/INTERPOL.html" target="_blank">
+            <img src="./로고/22.png" alt="INTERPOL">
+        </a>
+    </div>
+    
+    <div class="liberte" id="liberte">
+        <a href="./동아리/23. liberte/liberte.html" target="_blank">
+            <img src="./로고/23.png" alt="liberte">
+        </a>
+    </div>
+    
+    <div class="hcu">
+        <img src="hcu로고.png">
+    </div> 
+    <div class="tech" id = "tech" onclick="techclick()">
+        <img src="./원/공학.png">
+        <div class="text-overlay">공학</div>
+    </div>
+    <div class="techcircle" id = "techcircle">
+        <img src="./중간원/공학원.png">
+    </div>   
+    <div class="techcircle2" id = "techcircle2">
+        <img src="./중간원/공학원.png">
+    </div>   
+    <div class="science" id = "science" onclick="scienceclick()">
+        <img src="./원/과학.png">
+        <div class="text-overlay">자연과학</div>
+    </div>
+    <div class="sciencecircle">
+        <img src="./중간원/자연과학원.png">
+    </div>
+    <div class="sciencecircle2" id = "sciencecircle2">
+        <img src="./중간원/자연과학원.png">
+    </div>
+    <div class="math" id = "math" onclick="mathclick()">
+        <img src="./원/수학.png">
+        <div class="text-overlay">수학</div>
+    </div>
+    <div class="mathcircle">
+        <img src="./중간원/수학원.png">
+    </div>
+    <div class="mathcircle2" id = "mathcircle2">
+        <img src="./중간원/수학원.png">
+    </div>
+    <div class="medical" id = "medical" onclick="medicalclick()">
+        <img src="./원/의학.png">
+        <div class="text-overlay">의학</div>
+    </div>
+    <div class="medicalcircle">
+        <img src="./중간원/의학원.png">
+    </div>
+    <div class="medicalcircle2" id = "medicalcircle2">
+        <img src="./중간원/의학원.png">
+    </div>
+    <div class="pharmacy" id = "pharmacy" onclick="pharmacyclick()">
+        <img src="./원/약학.png">
+        <div class="text-overlay">약학</div>
+    </div>
+    <div class="pharmacycircle">
+        <img src="./중간원/약학원.png">
+    </div>
+    <div class="pharmacycircle2" id = "pharmacycircle2">
+        <img src="./중간원/약학원.png">
+    </div>
+    <div class="social" id = "social" onclick="socialclick()">
+        <img src="./원/사회.png">
+        <div class="text-overlay">사회</div>
+    </div>
+    <div class="socialcircle">
+        <img src="./중간원/사회원.png">
+    </div>
+    <div class="socialcircle2" id = "socialcircle2">
+        <img src="./중간원/사회원.png">
+    </div>
+    <div class="art" id = "art" onclick="artclick()">
+        <img src="./원/예술.png">
+        <div class="text-overlay">예술</div>
+    </div>
+    <div class="artcircle">
+        <img src="./중간원/예술원.png">
+    </div>
+    <div class="artcircle2" id = "artcircle2">
+        <img src="./중간원/예술원.png">
+    </div>
+    <div class="etc" id = "etc" onclick="etcclick()">
+        <img src="./원/기타.png">
+        <div class="text-overlay">기타</div>
+    </div>
+    <div class="etccircle">
+        <img src="./중간원/기타원.png">
+    </div>
+    <div class="etccircle2" id = "etccircle2">
+        <img src="./중간원/기타원.png">
+    </div>
+    <div id="clubs">
+    </div>
+</body>
+<footer>
+    <p>기본 화면 크기와 맞는 비율이 아닌 경우 원이 변형될 수 있습니다!<br>GIGA Copyright © 2024. All rights reserved.</p>
+</footer>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const techElement = document.querySelector('.tech');
+        const techCircleElement = document.querySelector('.techcircle');
+
+        techElement.addEventListener('mouseenter', () => {
+            techCircleElement.style.opacity = '1';
+        });
+
+        techElement.addEventListener('mouseleave', () => {
+            techCircleElement.style.opacity = '0';
+        });
+    });
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const scienceElement = document.querySelector('.science');
+        const scienceCircleElement = document.querySelector('.sciencecircle');
+
+        scienceElement.addEventListener('mouseenter', () => {
+            scienceCircleElement.style.opacity = '1';
+        });
+
+        scienceElement.addEventListener('mouseleave', () => {
+            scienceCircleElement.style.opacity = '0';
+        });
+    });
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const mathElement = document.querySelector('.math');
+        const mathCircleElement = document.querySelector('.mathcircle');
+
+        mathElement.addEventListener('mouseenter', () => {
+            mathCircleElement.style.opacity = '1';
+        });
+
+        mathElement.addEventListener('mouseleave', () => {
+            mathCircleElement.style.opacity = '0';
+        });
+    });
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const medicalElement = document.querySelector('.medical');
+        const medicalCircleElement = document.querySelector('.medicalcircle');
+
+        medicalElement.addEventListener('mouseenter', () => {
+            medicalCircleElement.style.opacity = '1';
+        });
+
+        medicalElement.addEventListener('mouseleave', () => {
+            medicalCircleElement.style.opacity = '0';
+        });
+    });
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const pharmacyElement = document.querySelector('.pharmacy');
+        const pharmacyCircleElement = document.querySelector('.pharmacycircle');
+
+        pharmacyElement.addEventListener('mouseenter', () => {
+            pharmacyCircleElement.style.opacity = '1';
+        });
+
+        pharmacyElement.addEventListener('mouseleave', () => {
+            pharmacyCircleElement.style.opacity = '0';
+        });
+    });
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const artElement = document.querySelector('.art');
+        const artCircleElement = document.querySelector('.artcircle');
+
+        artElement.addEventListener('mouseenter', () => {
+            artCircleElement.style.opacity = '1';
+        });
+
+        artElement.addEventListener('mouseleave', () => {
+            artCircleElement.style.opacity = '0';
+        });
+    });
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const socialElement = document.querySelector('.social');
+        const socialCircleElement = document.querySelector('.socialcircle');
+
+        socialElement.addEventListener('mouseenter', () => {
+            socialCircleElement.style.opacity = '1';
+        });
+
+        socialElement.addEventListener('mouseleave', () => {
+            socialCircleElement.style.opacity = '0';
+        });
+    });
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const etcElement = document.querySelector('.etc');
+        const etcCircleElement = document.querySelector('.etccircle');
+
+        etcElement.addEventListener('mouseenter', () => {
+            etcCircleElement.style.opacity = '1';
+        });
+
+        etcElement.addEventListener('mouseleave', () => {
+            etcCircleElement.style.opacity = '0';
+        });
+    });
+    //================================================================
+        function techclick() {
+        const clubs = document.getElementById('clubs');
+        const tech = document.getElementById('tech');
+        const techcircle2 = document.getElementById('techcircle2');
+        
+        clubs.style.background = 'rgb(180, 199, 231)';
+        tech.style.transform = 'scale(1.5)';
+        tech.style.opacity = '1';
+        tech.style.zIndex = '4';
+        techcircle2.style.opacity = '1';
+        techcircle2.style.zIndex = '2';
+        
+        const otherClubs = document.querySelectorAll('.시나브로, .AIM, .CUBE, .GeNiUS, .KDX, .CELLS, .DM, .LUCID, .DNT, .SIN, .동물의숲, .EBS, .MEME, .IT, .강약중강약, .글애돝, .BYOD, .라포르, .INTERPOL, .liberte');
+        otherClubs.forEach(element => {
+            element.style.display = 'none';
+        });
+
+        const displayClubs = document.querySelectorAll('.STEM, .SAMDI, .GIGA');
+        displayClubs.forEach(element => {
+            element.style.display = 'block';
+        });
+
+        const otherElements = document.querySelectorAll('.science, .math, .medical, .pharmacy, .art, .social, .etc');
+        otherElements.forEach(element => {
+            element.style.transform = 'scale(1.4)';
+            element.style.opacity = '0.7';
+            element.style.zIndex = '3';
+        });
+
+        const otherCircles = document.querySelectorAll('.sciencecircle2, .mathcircle2, .medicalcircle2, .pharmacycircle2, .artcircle2, .socialcircle2, .etccircle2');
+        otherCircles.forEach(circle => {
+            circle.style.opacity = '0';
+        });
+    }
+
+    function scienceclick() {
+        const clubs = document.getElementById('clubs');
+        const science = document.getElementById('science');
+        const sciencecircle2 = document.getElementById('sciencecircle2');
+        clubs.style.background = 'rgb(157, 195, 230)';
+        science.style.transform = 'scale(1.5)';
+        science.style.opacity = '1';
+        science.style.zIndex = '4';
+        sciencecircle2.style.opacity = '1';
+        sciencecircle2.style.zIndex = '2';
+
+        const otherElements = document.querySelectorAll('.tech, .math, .medical, .pharmacy, .art, .social, .etc');
+        otherElements.forEach(element => {
+            element.style.transform = 'scale(1.4)';
+            element.style.opacity = '0.7';
+            element.style.zIndex = '3';
+        });
+
+        const displayClubs = document.querySelectorAll('.시나브로, .AIM, .CUBE, .GeNiUS, .KDX, .CELLS');
+        displayClubs.forEach(element => {
+            element.style.display = 'block';
+        });
+
+        const otherClubs = document.querySelectorAll('.STEM, .SAMDI, .GIGA, .DM, .LUCID, .DNT, .SIN, .동물의숲, .EBS, .MEME, .IT, .강약중강약, .글애돝, .BYOD, .라포르, .INTERPOL, .liberte');
+        otherClubs.forEach(element => {
+            element.style.display = 'none';
+        });
+
+        const otherCircles = document.querySelectorAll('.techcircle2, .mathcircle2, .medicalcircle2, .pharmacycircle2, .artcircle2, .socialcircle2, .etccircle2');
+        otherCircles.forEach(circle => {
+            circle.style.opacity = '0';
+        });
+    }
+
+    function mathclick() {
+        const clubs = document.getElementById('clubs');
+        const math = document.getElementById('math');
+        const mathcircle2 = document.getElementById('mathcircle2');
+        clubs.style.background = 'rgb(143, 170, 220)';
+        math.style.transform = 'scale(1.5)';
+        math.style.opacity = '1';
+        math.style.zIndex = '4';
+        mathcircle2.style.opacity = '1';
+        mathcircle2.style.zIndex = '2';
+
+        const otherClubs = document.querySelectorAll('.시나브로, .AIM, .CUBE, .GeNiUS, .KDX, .CELLS, .STEM, .SAMDI, .GIGA, .SIN, .동물의숲, .EBS, .MEME, .IT, .강약중강약, .글애돝, .BYOD, .라포르, .INTERPOL, .liberte');
+        otherClubs.forEach(element => {
+            element.style.display = 'none';
+        });
+
+        const displayClubs = document.querySelectorAll('.DM, .LUCID, .DNT');
+        displayClubs.forEach(element => {
+            element.style.display = 'block';
+        });
+
+        const otherElements = document.querySelectorAll('.tech, .science, .medical, .pharmacy, .art, .social, .etc');
+        otherElements.forEach(element => {
+            element.style.transform = 'scale(1.4)';
+            element.style.opacity = '0.7';
+            element.style.zIndex = '3';
+        });
+
+        const otherCircles = document.querySelectorAll('.techcircle2, .sciencecircle2, .medicalcircle2, .pharmacycircle2, .artcircle2, .socialcircle2, .etccircle2');
+        otherCircles.forEach(circle => {
+            circle.style.opacity = '0';
+        });
+    }
+    function medicalclick() {
+        const clubs = document.getElementById('clubs');
+        const medical = document.getElementById('medical');
+        const medicalcircle2 = document.getElementById('medicalcircle2');
+        clubs.style.background = 'rgb(226, 240, 217)';
+        medical.style.transform = 'scale(1.5)';
+        medical.style.opacity = '1';
+        medical.style.zIndex = '4';
+        medicalcircle2.style.opacity = '1';
+        medicalcircle2.style.zIndex = '2';
+
+        const otherClubs = document.querySelectorAll('.시나브로, .AIM, .CUBE, .GeNiUS, .KDX, .CELLS, .STEM, .SAMDI, .GIGA, .DM, .LUCID, .DNT, .강약중강약, .글애돝, .BYOD, .라포르, .INTERPOL, .liberte');
+        otherClubs.forEach(element => {
+            element.style.display = 'none';
+        });
+
+        const displayClubs = document.querySelectorAll('.SIN, .동물의숲, .EBS, .MEME, .IT');
+        displayClubs.forEach(element => {
+            element.style.display = 'block';
+        });
+        
+        const otherElements = document.querySelectorAll('.tech, .science, .math, .pharmacy, .art, .social, .etc');
+        otherElements.forEach(element => {
+            element.style.transform = 'scale(1.4)';
+            element.style.opacity = '0.7';
+            element.style.zIndex = '3';
+        });
+
+        const otherCircles = document.querySelectorAll('.techcircle2, .sciencecircle2, .mathcircle2, .pharmacycircle2, .artcircle2, .socialcircle2, .etccircle2');
+        otherCircles.forEach(circle => {
+            circle.style.opacity = '0';
+        });
+    }
+    function pharmacyclick() {
+        const clubs = document.getElementById('clubs');
+        const pharmacy = document.getElementById('pharmacy');
+        const pharmacycircle2 = document.getElementById('pharmacycircle2');
+        clubs.style.background = 'rgb(169, 209, 142)';
+        pharmacy.style.transform = 'scale(1.5)';
+        pharmacy.style.opacity = '1';
+        pharmacy.style.zIndex = '4';
+        pharmacycircle2.style.opacity = '1';
+        pharmacycircle2.style.zIndex = '2';
+
+        const otherClubs = document.querySelectorAll('.시나브로, .AIM, .CUBE, .GeNiUS, .KDX, .CELLS, .STEM, .SAMDI, .GIGA, .DM, .LUCID, .DNT, .SIN, .동물의숲, .EBS, .MEME, .IT, .글애돝, .BYOD, .라포르, .INTERPOL, .liberte');
+        otherClubs.forEach(element => {
+            element.style.display = 'none';
+        });
+
+        const displayClubs = document.querySelectorAll('.강약중강약');
+        displayClubs.forEach(element => {
+            element.style.display = 'block';
+        });
+
+        const otherElements = document.querySelectorAll('.tech, .science, .math, .medical, .art, .social, .etc');
+        otherElements.forEach(element => {
+            element.style.transform = 'scale(1.4)';
+            element.style.opacity = '0.7';
+            element.style.zIndex = '3';
+        });
+
+        const otherCircles = document.querySelectorAll('.techcircle2, .sciencecircle2, .mathcircle2, .medicalcircle2, .artcircle2, .socialcircle2, .etccircle2');
+        otherCircles.forEach(circle => {
+            circle.style.opacity = '0';
+        });
+    }
+    function artclick() {
+        const clubs = document.getElementById('clubs');
+        const art = document.getElementById('art');
+        const artcircle2 = document.getElementById('artcircle2');
+        clubs.style.background = 'rgb(248, 203, 173)';
+        art.style.transform = 'scale(1.5)';
+        art.style.opacity = '1';
+        art.style.zIndex = '4';
+        artcircle2.style.opacity = '1';
+        artcircle2.style.zIndex = '2';
+    
+        const otherClubs = document.querySelectorAll('.시나브로, .AIM, .CUBE, .GeNiUS, .KDX, .CELLS, .STEM, .SAMDI, .GIGA, .DM, .LUCID, .DNT, .SIN, .동물의숲, .EBS, .MEME, .IT, .강약중강약, .라포르, .INTERPOL, .liberte');
+        otherClubs.forEach(element => {
+            element.style.display = 'none';
+        });
+
+        const displayClubs = document.querySelectorAll('.글애돝, .BYOD');
+        displayClubs.forEach(element => {
+            element.style.display = 'block';
+        });
+
+        const otherElements = document.querySelectorAll('.tech, .science, .math, .medical, .pharmacy, .social, .etc');
+        otherElements.forEach(element => {
+            element.style.transform = 'scale(1.4)';
+            element.style.opacity = '0.7';
+            element.style.zIndex = '3';
+        });
+
+        const otherCircles = document.querySelectorAll('.techcircle2, .sciencecircle2, .mathcircle2, .medicalcircle2, .pharmacycircle2, .socialcircle2, .etccircle2');
+        otherCircles.forEach(circle => {
+            circle.style.opacity = '0';
+        });
+    }
+    function socialclick() {
+        const clubs = document.getElementById('clubs');
+        const social = document.getElementById('social');
+        const socialcircle2 = document.getElementById('socialcircle2');
+        clubs.style.background = 'rgb(244, 177, 131)';
+        social.style.transform = 'scale(1.5)';
+        social.style.opacity = '1';
+        social.style.zIndex = '4';
+        socialcircle2.style.opacity = '1';
+        socialcircle2.style.zIndex = '2';
+
+
+        const otherClubs = document.querySelectorAll('.시나브로, .AIM, .CUBE, .GeNiUS, .KDX, .CELLS, .STEM, .SAMDI, .GIGA, .DM, .LUCID, .DNT, .SIN, .동물의숲, .EBS, .MEME, .IT, .강약중강약, .글애돝, .BYOD, .liberte');
+        otherClubs.forEach(element => {
+            element.style.display = 'none';
+        });
+
+        const displayClubs = document.querySelectorAll('.라포르, .INTERPOL');
+        displayClubs.forEach(element => {
+            element.style.display = 'block';
+        });
+
+        const otherElements = document.querySelectorAll('.tech, .science, .math, .medical, .pharmacy, .art, .etc');
+        otherElements.forEach(element => {
+            element.style.transform = 'scale(1.4)';
+            element.style.opacity = '0.7';
+            element.style.zIndex = '3';
+        });
+
+        const otherCircles = document.querySelectorAll('.techcircle2, .sciencecircle2, .mathcircle2, .medicalcircle2, .pharmacycircle2, .artcircle2, .etccircle2');
+        otherCircles.forEach(circle => {
+            circle.style.opacity = '0';
+        });
+    }
+    function etcclick() {
+        const clubs = document.getElementById('clubs');
+        const etc = document.getElementById('etc');
+        const etccircle2 = document.getElementById('etccircle2');
+        clubs.style.background = 'rgb(191, 191, 191)';
+        etc.style.transform = 'scale(1.5)';
+        etc.style.opacity = '1';
+        etc.style.zIndex = '4';
+        etccircle2.style.opacity = '1';
+        etccircle2.style.zIndex = '2';
+
+        const otherClubs = document.querySelectorAll('.시나브로, .AIM, .CUBE, .GeNiUS, .KDX, .CELLS, .STEM, .SAMDI, .GIGA, .DM, .LUCID, .DNT, .SIN, .동물의숲, .EBS, .MEME, .IT, .강약중강약, .글애돝, .BYOD, .라포르, .INTERPOL');
+        otherClubs.forEach(element => {
+            element.style.display = 'none';
+        });
+
+        const displayClubs = document.querySelectorAll('.liberte');
+        displayClubs.forEach(element => {
+            element.style.display = 'block';
+        });
+
+
+        const otherElements = document.querySelectorAll('.tech, .science, .math, .medical, .pharmacy, .art, .social');
+        otherElements.forEach(element => {
+            element.style.transform = 'scale(1.4)';
+            element.style.opacity = '0.7';
+            element.style.zIndex = '3';
+        });
+
+        const otherCircles = document.querySelectorAll('.techcircle2, .sciencecircle2, .mathcircle2, .medicalcircle2, .pharmacycircle2, .artcircle2, .socialcircle2');
+        otherCircles.forEach(circle => {
+            circle.style.opacity = '0';
+        });
+    }
+</script>
+</html>
